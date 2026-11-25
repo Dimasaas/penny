@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
                      "módulos 10 e 11 da FEBRABAN, linha digitável de boleto e código de barras ITF em SVG. " \
                      "Sem dependências de runtime."
   spec.homepage = "https://github.com/Dimasaas/centavos"
-  spec.license = "MIT"
+  spec.license = "PolyForm-Noncommercial-1.0.0"
   spec.required_ruby_version = ">= 3.2"
 
   spec.files = Dir["lib/**/*.rb", "LICENSE", "README.md"]
