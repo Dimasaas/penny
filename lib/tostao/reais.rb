@@ -1,4 +1,4 @@
-module Centavos
+module Tostao
   # Formatação e leitura de valores em reais (BRL).
   module Reais
     LEITURA = /

@@ -1,17 +1,19 @@
 <p align="center">
-  <img src="docs/banner.svg" alt="centavos: dinheiro em centavos inteiros" width="100%">
+  <img src="docs/banner.svg" alt="Tostão: dinheiro em centavos inteiros" width="100%">
 </p>
 
 <p align="center">
-  <a href="https://github.com/Dimasaas/centavos/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Dimasaas/centavos/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/Dimasaas/tostao/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Dimasaas/tostao/actions/workflows/ci.yml/badge.svg"></a>
   <img alt="Ruby 3.2 | 3.3" src="https://img.shields.io/badge/ruby-3.2%20%7C%203.3-CC342D?logo=ruby&logoColor=white">
   <img alt="sem dependências" src="https://img.shields.io/badge/depend%C3%AAncias-zero-00E5FF">
   <img alt="Licença PolyForm Noncommercial" src="https://img.shields.io/badge/licen%C3%A7a-PolyForm%20Noncommercial-7C4DFF">
 </p>
 
-# centavos
+# Tostão
 
-Dinheiro em **centavos inteiros**, em Ruby puro: rateio que não perde nem cria centavo, leitura e formatação de reais, módulos 10 e 11 da FEBRABAN, conversão entre linha digitável e código de barras de boleto e o código de barras **ITF (2 de 5 intercalado)** desenhado em SVG com as medidas da norma.
+> dinheiro em centavos inteiros, rateio exato e boleto ITF em SVG
+
+O **Tostão** guarda dinheiro em **centavos inteiros**, em Ruby puro: rateio que não perde nem cria centavo, leitura e formatação de reais, módulos 10 e 11 da FEBRABAN, conversão entre linha digitável e código de barras de boleto e o código de barras **ITF (2 de 5 intercalado)** desenhado em SVG com as medidas da norma.
 
 ## Por que existe
 
@@ -26,7 +28,7 @@ O mesmo vale para dividir. R$ 100,00 em 3 partes iguais não dá 3 vezes R$ 33,3
 
 ```ruby
 (100.0 / 3).round(2) * 3   # => 99.99  (um centavo sumiu)
-Centavos.rateio(10_000, [1, 1, 1])
+Tostao.rateio(10_000, [1, 1, 1])
 # => [3334, 3333, 3333]    (soma 10000, sempre)
 ```
 
@@ -37,7 +39,7 @@ A biblioteca guarda tudo em centavos (`Integer`) e reparte pelo **método dos ma
 Sem dependências de runtime. Por enquanto, direto do Git:
 
 ```ruby
-gem "centavos", github: "Dimasaas/centavos"
+gem "tostao", github: "Dimasaas/tostao"
 ```
 
 Requer Ruby 3.2 ou superior.
@@ -47,17 +49,17 @@ Requer Ruby 3.2 ou superior.
 ### Rateio
 
 ```ruby
-require "centavos"
+require "tostao"
 
-Centavos.rateio(10_000, [1, 1, 1])        # => [3334, 3333, 3333]
-Centavos.rateio(10_000, [3, 2])           # => [6000, 4000]
-Centavos.rateio(101, [1, 2, 2])           # => [20, 41, 40]
-Centavos.rateio(-10_000, [1, 1, 1])       # => [-3334, -3333, -3333]
+Tostao.rateio(10_000, [1, 1, 1])        # => [3334, 3333, 3333]
+Tostao.rateio(10_000, [3, 2])           # => [6000, 4000]
+Tostao.rateio(101, [1, 2, 2])           # => [20, 41, 40]
+Tostao.rateio(-10_000, [1, 1, 1])       # => [-3334, -3333, -3333]
 
 # percentuais precisam somar exatamente 100%
-Centavos.rateio_percentual(10_000, ["33,34", "33,33", "33,33"]) # => [3334, 3333, 3333]
-Centavos.rateio_percentual(10_000, ["33,33", "33,33", "33,33"])
-# Centavos::RateioInvalido: os percentuais somam 99,99%, e precisam somar 100%
+Tostao.rateio_percentual(10_000, ["33,34", "33,33", "33,33"]) # => [3334, 3333, 3333]
+Tostao.rateio_percentual(10_000, ["33,33", "33,33", "33,33"])
+# Tostao::RateioInvalido: os percentuais somam 99,99%, e precisam somar 100%
 ```
 
 Pesos podem ser `Integer`, `Rational`, `BigDecimal` ou texto (`"33,33"`). `Float` é recusado de propósito.
@@ -65,28 +67,28 @@ Pesos podem ser `Integer`, `Rational`, `BigDecimal` ou texto (`"33,33"`). `Float
 ### Formatar e ler reais
 
 ```ruby
-Centavos.formatar(12_345)                  # => "R$ 123,45"
-Centavos.formatar(-5)                      # => "-R$ 0,05"
-Centavos.formatar(123_456, simbolo: false) # => "1.234,56"
+Tostao.formatar(12_345)                  # => "R$ 123,45"
+Tostao.formatar(-5)                      # => "-R$ 0,05"
+Tostao.formatar(123_456, simbolo: false) # => "1.234,56"
 
-Centavos.ler("R$ 1.234,56")                # => 123456
-Centavos.ler("1234")                       # => 123400   (sem vírgula são reais)
-Centavos.ler("-R$ 5,00")                   # => -500
-Centavos.ler("1,234")                      # Centavos::ValorInvalido
+Tostao.ler("R$ 1.234,56")                # => 123456
+Tostao.ler("1234")                       # => 123400   (sem vírgula são reais)
+Tostao.ler("-R$ 5,00")                   # => -500
+Tostao.ler("1,234")                      # Tostao::ValorInvalido
 ```
 
 ### Boleto
 
 ```ruby
-boleto = Centavos.boleto("99990.12348 56789.012343 56789.012343 3 16770000123456")
+boleto = Tostao.boleto("99990.12348 56789.012343 56789.012343 3 16770000123456")
 
 boleto.barras           # => "99993167700001234560123456789012345678901234"
 boleto.valor_centavos   # => 123456
 boleto.vencimento       # => 2026-12-31
 boleto.linha_formatada  # => "99990.12348 56789.012343 56789.012343 3 16770000123456"
 
-Centavos.boleto("99990.12348 56789.012343 56789.012343 3 16770000123457")
-# Centavos::BoletoInvalido: DV geral do código de barras não confere ...
+Tostao.boleto("99990.12348 56789.012343 56789.012343 3 16770000123457")
+# Tostao::BoletoInvalido: DV geral do código de barras não confere ...
 ```
 
 A leitura aceita a linha (47 dígitos) ou as barras (44), com ou sem pontuação, e recusa dizendo qual DV falhou.
@@ -94,7 +96,7 @@ A leitura aceita a linha (47 dígitos) ou as barras (44), com ou sem pontuação
 Para gerar boletos **fictícios** com DVs válidos (exemplos e testes):
 
 ```ruby
-Centavos::Boleto.montar(banco: 999, valor_centavos: 123_456,
+Tostao::Boleto.montar(banco: 999, valor_centavos: 123_456,
                         vencimento: Date.new(2026, 12, 31),
                         campo_livre: "0123456789012345678901234")
 ```
@@ -102,7 +104,7 @@ Centavos::Boleto.montar(banco: 999, valor_centavos: 123_456,
 ### Código de barras em SVG
 
 ```ruby
-File.write("barras.svg", Centavos.codigo_de_barras_svg(boleto.linha))
+File.write("barras.svg", Tostao.codigo_de_barras_svg(boleto.linha))
 ```
 
 O SVG abaixo foi gerado por [`exemplos/gerar_svg.rb`](exemplos/gerar_svg.rb) a partir de um boleto fictício:
@@ -129,7 +131,7 @@ Posições do código de barras: banco (3), moeda (1), DV geral (1), fator de ve
 
 ## Decisões
 
-- **Centavos inteiros, `Float` proibido.** Quem passa `Float` ao rateio recebe erro. O erro de arredondamento não pode entrar por acaso.
+- **Tostao inteiros, `Float` proibido.** Quem passa `Float` ao rateio recebe erro. O erro de arredondamento não pode entrar por acaso.
 - **Maiores restos, empate para o primeiro.** É determinístico: a mesma entrada dá sempre a mesma saída, e a ordem da lista tem significado.
 - **Racionais por dentro.** As cotas são calculadas com `Rational`, sem arredondar nada até a distribuição final.
 - **Recusar é melhor que adivinhar.** Percentuais que não somam 100%, `"1,234"` como valor e DV errado levantam erro com mensagem clara em vez de seguir adiante.

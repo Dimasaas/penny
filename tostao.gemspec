@@ -1,8 +1,8 @@
-require_relative "lib/centavos/versao"
+require_relative "lib/tostao/versao"
 
 Gem::Specification.new do |spec|
-  spec.name = "centavos"
-  spec.version = Centavos::VERSAO
+  spec.name = "tostao"
+  spec.version = Tostao::VERSAO
   spec.authors = ["João Victor Diamantino Cardoso"]
   spec.email = ["80987512+Dimasaas@users.noreply.github.com"]
 
@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description = "Rateio pelo método dos maiores restos, formatação e leitura de reais, " \
                      "módulos 10 e 11 da FEBRABAN, linha digitável de boleto e código de barras ITF em SVG. " \
                      "Sem dependências de runtime."
-  spec.homepage = "https://github.com/Dimasaas/centavos"
+  spec.homepage = "https://github.com/Dimasaas/tostao"
   spec.license = "PolyForm-Noncommercial-1.0.0"
   spec.required_ruby_version = ">= 3.2"
 

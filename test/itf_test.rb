@@ -1,7 +1,7 @@
 require "test_helper"
 
 class ItfTest < Minitest::Test
-  I = Centavos::Itf
+  I = Tostao::Itf
 
   def test_largura_de_44_digitos_bate_com_a_norma
     # 22 pares x 18 finos + início (4) + fim (5) + 2 margens de 10 = 425 finos
@@ -30,9 +30,9 @@ class ItfTest < Minitest::Test
   end
 
   def test_recusa_impar_e_nao_digito
-    assert_raises(Centavos::BoletoInvalido) { I.elementos("123") }
-    assert_raises(Centavos::BoletoInvalido) { I.elementos("12ab") }
-    assert_raises(Centavos::BoletoInvalido) { I.elementos("") }
+    assert_raises(Tostao::BoletoInvalido) { I.elementos("123") }
+    assert_raises(Tostao::BoletoInvalido) { I.elementos("12ab") }
+    assert_raises(Tostao::BoletoInvalido) { I.elementos("") }
   end
 
   def test_svg_tem_as_medidas_em_milimetros
@@ -45,7 +45,7 @@ class ItfTest < Minitest::Test
   end
 
   def test_svg_tem_um_retangulo_por_barra_preta
-    boleto = Centavos::Boleto.montar(banco: 999, valor_centavos: 100, vencimento: Date.new(2026, 12, 31),
+    boleto = Tostao::Boleto.montar(banco: 999, valor_centavos: 100, vencimento: Date.new(2026, 12, 31),
                                      campo_livre: "1" * 25)
     svg = I.svg(boleto.barras)
     assert_equal I.elementos(boleto.barras).count { |preta, _| preta }, svg.scan(/<rect x=/).size

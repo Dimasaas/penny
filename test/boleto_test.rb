@@ -3,7 +3,7 @@ require "test_helper"
 # Todos os boletos daqui são FICTÍCIOS: banco 999 não existe e o boleto é
 # montado pela própria biblioteca, só para ter DVs válidos.
 class BoletoTest < Minitest::Test
-  B = Centavos::Boleto
+  B = Tostao::Boleto
 
   def montar(**extra)
     B.montar(banco: 999, valor_centavos: 12_345, vencimento: Date.new(2026, 12, 31),
@@ -44,18 +44,18 @@ class BoletoTest < Minitest::Test
   def test_dv_de_campo_errado_e_recusado
     linha = montar.linha.dup
     linha[9] = ((linha[9].to_i + 1) % 10).to_s
-    erro = assert_raises(Centavos::BoletoInvalido) { B.ler(linha) }
+    erro = assert_raises(Tostao::BoletoInvalido) { B.ler(linha) }
     assert_match(/campo 1/, erro.message)
 
     linha = montar.linha.dup
     linha[31] = ((linha[31].to_i + 1) % 10).to_s
-    assert_match(/campo 3/, assert_raises(Centavos::BoletoInvalido) { B.ler(linha) }.message)
+    assert_match(/campo 3/, assert_raises(Tostao::BoletoInvalido) { B.ler(linha) }.message)
   end
 
   def test_dv_geral_errado_e_recusado
     barras = montar.barras.dup
     barras[4] = ((barras[4].to_i + 1) % 10).to_s
-    assert_match(/DV geral/, assert_raises(Centavos::BoletoInvalido) { B.ler(barras) }.message)
+    assert_match(/DV geral/, assert_raises(Tostao::BoletoInvalido) { B.ler(barras) }.message)
   end
 
   def test_valor_adulterado_quebra_o_dv_geral
@@ -69,12 +69,12 @@ class BoletoTest < Minitest::Test
     refute B.valido?("")
     refute B.valido?(nil)
     refute B.valido?("a" * 47)
-    assert_match(/47.*44/, assert_raises(Centavos::BoletoInvalido) { B.ler("1" * 45) }.message)
+    assert_match(/47.*44/, assert_raises(Tostao::BoletoInvalido) { B.ler("1" * 45) }.message)
   end
 
   def test_montar_recusa_campo_livre_e_valor_ruins
-    assert_raises(Centavos::BoletoInvalido) { montar(campo_livre: "123") }
-    assert_raises(Centavos::BoletoInvalido) do
+    assert_raises(Tostao::BoletoInvalido) { montar(campo_livre: "123") }
+    assert_raises(Tostao::BoletoInvalido) do
       B.montar(banco: 999, valor_centavos: -1, vencimento: nil, campo_livre: "0" * 25)
     end
   end

@@ -1,4 +1,4 @@
-module Centavos
+module Tostao
   # Dígitos verificadores da FEBRABAN. Recebem só dígitos (String) e
   # devolvem o DV como Integer.
   module Modulos
