@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="centavos: dinheiro em centavos inteiros">
+  <title>centavos</title>
+  <defs>
+    <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a1052"/>
+      <stop offset="1" stop-color="#1b3a8a"/>
+    </linearGradient>
+    <style>
+      text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+      .cursor { animation: piscar 1.2s steps(1) infinite; }
+      .barras { animation: respirar 4s ease-in-out infinite; }
+      .brilho { animation: brilho 4s ease-in-out infinite; }
+      @keyframes piscar { 50% { opacity: 0; } }
+      @keyframes respirar { 0%, 100% { opacity: .55; } 50% { opacity: .95; } }
+      @keyframes brilho { 0%, 100% { opacity: .15; } 50% { opacity: .35; } }
+    </style>
+  </defs>
+  <rect width="1280" height="320" fill="url(#fundo)"/>
+  <circle class="brilho" cx="1120" cy="60" r="150" fill="#B388FF"/>
+  <g class="barras" fill="#00E5FF">
+    <rect x="830" y="196" width="4" height="64"/>
+    <rect x="846" y="196" width="4" height="64"/>
+    <rect x="854" y="196" width="12" height="64"/>
+    <rect x="878" y="196" width="4" height="64"/>
+    <rect x="894" y="196" width="4" height="64"/>
+    <rect x="902" y="196" width="4" height="64"/>
+    <rect x="918" y="196" width="4" height="64"/>
+    <rect x="926" y="196" width="12" height="64"/>
+    <rect x="950" y="196" width="12" height="64"/>
+    <rect x="966" y="196" width="4" height="64"/>
+    <rect x="974" y="196" width="4" height="64"/>
+    <rect x="990" y="196" width="12" height="64"/>
+    <rect x="1014" y="196" width="4" height="64"/>
+    <rect x="1030" y="196" width="4" height="64"/>
+    <rect x="1038" y="196" width="4" height="64"/>
+    <rect x="1046" y="196" width="4" height="64"/>
+    <rect x="1054" y="196" width="12" height="64"/>
+    <rect x="1078" y="196" width="12" height="64"/>
+    <rect x="1102" y="196" width="12" height="64"/>
+    <rect x="1118" y="196" width="12" height="64"/>
+    <rect x="1134" y="196" width="4" height="64"/>
+    <rect x="1142" y="196" width="4" height="64"/>
+    <rect x="1150" y="196" width="12" height="64"/>
+    <rect x="1166" y="196" width="4" height="64"/>
+    <rect x="1182" y="196" width="12" height="64"/>
+    <rect x="1206" y="196" width="4" height="64"/>
+    <rect x="1214" y="196" width="12" height="64"/>
+  </g>
+  <text x="70" y="135" font-size="84" font-weight="700" fill="#ffffff">centavos<tspan class="cursor" fill="#00E5FF">_</tspan></text>
+  <text x="74" y="185" font-size="26" fill="#B388FF">dinheiro em inteiros. nunca float.</text>
+  <text x="74" y="244" font-size="22" fill="#e8e0ff">rateio(10_000, [1, 1, 1])</text>
+  <text x="74" y="276" font-size="22" fill="#00E5FF">=&gt; [3334, 3333, 3333]   soma = 10000</text>
+</svg>
