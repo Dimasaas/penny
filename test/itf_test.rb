@@ -44,6 +44,12 @@ class ItfTest < Minitest::Test
     assert_match(/<rect x="2.54" width="0.254"/, svg)
   end
 
+  def test_svg_aceita_cores_de_tinta_e_papel
+    svg = I.svg("0" * 44, tinta: "#1F2A24", papel: "#F4EEDC")
+    assert_match(/fill="#F4EEDC"/, svg)
+    assert_match(/<g fill="#1F2A24"/, svg)
+  end
+
   def test_svg_tem_um_retangulo_por_barra_preta
     boleto = Penny::Boleto.montar(banco: 999, valor_centavos: 100, vencimento: Date.new(2026, 12, 31),
                                      campo_livre: "1" * 25)

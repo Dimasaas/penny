@@ -1,0 +1,13 @@
+{
+  "nome": "Penny",
+  "paleta": {
+    "fundo": "#0F3D2E",
+    "primaria": "#C8893B",
+    "secundaria": "#F4EEDC",
+    "texto": "#F4EEDC",
+    "acento": "#1F2A24"
+  },
+  "fonte": "Georgia, 'Times New Roman', serif",
+  "logo": "docs/logo.svg",
+  "conceito": "Cédula gravada: guilhochê, moldura e numeração serial para dinheiro em centavos inteiros."
+}

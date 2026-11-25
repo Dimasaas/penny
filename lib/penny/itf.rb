@@ -37,7 +37,7 @@ module Penny
     end
 
     # SVG em milímetros reais (impresso a 100%, tem o tamanho da norma).
-    def svg(digitos, titulo: "Código de barras ITF")
+    def svg(digitos, titulo: "Código de barras ITF", tinta: "#000", papel: "#fff")
       finos = largura_em_finos(digitos)
       largura_mm = milimetros(finos)
       x = MARGEM
@@ -50,8 +50,8 @@ module Penny
       <<~SVG
         <svg xmlns="http://www.w3.org/2000/svg" width="#{largura_mm}mm" height="#{milimetros_altura}mm" viewBox="0 0 #{largura_mm} #{milimetros_altura}" role="img" aria-label="#{titulo}">
           <title>#{titulo}</title>
-          <rect width="#{largura_mm}" height="#{milimetros_altura}" fill="#fff"/>
-          <g fill="#000" shape-rendering="crispEdges">
+          <rect width="#{largura_mm}" height="#{milimetros_altura}" fill="#{papel}"/>
+          <g fill="#{tinta}" shape-rendering="crispEdges">
             #{retangulos.join("\n    ")}
           </g>
         </svg>

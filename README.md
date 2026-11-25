@@ -4,9 +4,9 @@
 
 <p align="center">
   <a href="https://github.com/Dimasaas/penny/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Dimasaas/penny/actions/workflows/ci.yml/badge.svg"></a>
-  <img alt="Ruby 3.2 | 3.3" src="https://img.shields.io/badge/ruby-3.2%20%7C%203.3-CC342D?logo=ruby&logoColor=white">
-  <img alt="sem dependências" src="https://img.shields.io/badge/depend%C3%AAncias-zero-4D8BFF">
-  <img alt="Licença PolyForm Noncommercial" src="https://img.shields.io/badge/licen%C3%A7a-PolyForm%20Noncommercial-FF4FA3">
+  <img alt="Ruby 3.2 | 3.3" src="https://img.shields.io/badge/ruby-3.2%20%7C%203.3-0F3D2E?logo=ruby&logoColor=white">
+  <img alt="sem dependências" src="https://img.shields.io/badge/depend%C3%AAncias-zero-1F2A24">
+  <img alt="Licença PolyForm Noncommercial" src="https://img.shields.io/badge/licen%C3%A7a-PolyForm%20Noncommercial-C8893B">
 </p>
 
 # Penny

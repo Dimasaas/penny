@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="107.95mm" height="13.0mm" viewBox="0 0 107.95 13.0" role="img" aria-label="Código de barras ITF de um boleto fictício">
   <title>Código de barras ITF de um boleto fictício</title>
-  <rect width="107.95" height="13.0" fill="#fff"/>
-  <g fill="#000" shape-rendering="crispEdges">
+  <rect width="107.95" height="13.0" fill="#F4EEDC"/>
+  <g fill="#1F2A24" shape-rendering="crispEdges">
     <rect x="2.54" width="0.254" height="13.0"/>
     <rect x="3.048" width="0.254" height="13.0"/>
     <rect x="3.556" width="0.254" height="13.0"/>

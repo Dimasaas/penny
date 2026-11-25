@@ -12,7 +12,8 @@ boleto = Penny::Boleto.montar(
 )
 
 destino = File.expand_path("../docs/codigo-de-barras.svg", __dir__)
-File.write(destino, Penny::Itf.svg(boleto.barras, titulo: "Código de barras ITF de um boleto fictício"))
+File.write(destino, Penny::Itf.svg(boleto.barras, titulo: "Código de barras ITF de um boleto fictício",
+                                       tinta: "#1F2A24", papel: "#F4EEDC"))
 
 puts "Linha digitável: #{boleto.linha_formatada}"
 puts "Código de barras: #{boleto.barras}"
