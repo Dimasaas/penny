@@ -1,4 +1,4 @@
-module Tostao
+module Penny
   # Código de barras "2 de 5 intercalado" (ITF) como SVG, com as medidas da
   # FEBRABAN para o boleto: barra fina de 0,254 mm, barra larga = 3 finas,
   # altura de 13 mm e margem de silêncio de 10 finas de cada lado.

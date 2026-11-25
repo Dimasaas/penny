@@ -1,4 +1,4 @@
-module Tostao
+module Penny
   # Formatação e leitura de valores em reais (BRL).
   module Reais
     LEITURA = /

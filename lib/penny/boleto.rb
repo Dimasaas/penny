@@ -1,6 +1,6 @@
 require "date"
 
-module Tostao
+module Penny
   # Boleto de cobrança bancária: linha digitável (47 dígitos) e código de
   # barras (44 dígitos).
   #

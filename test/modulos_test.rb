@@ -1,7 +1,7 @@
 require "test_helper"
 
 class ModulosTest < Minitest::Test
-  M = Tostao::Modulos
+  M = Penny::Modulos
 
   def test_modulo10_contas_a_mao
     assert_equal 0, M.modulo10("0")
@@ -30,8 +30,8 @@ class ModulosTest < Minitest::Test
   end
 
   def test_recusa_o_que_nao_e_digito
-    assert_raises(Tostao::BoletoInvalido) { M.modulo10("12a") }
-    assert_raises(Tostao::BoletoInvalido) { M.modulo11("") }
-    assert_raises(Tostao::BoletoInvalido) { M.modulo10(nil) }
+    assert_raises(Penny::BoletoInvalido) { M.modulo10("12a") }
+    assert_raises(Penny::BoletoInvalido) { M.modulo11("") }
+    assert_raises(Penny::BoletoInvalido) { M.modulo10(nil) }
   end
 end

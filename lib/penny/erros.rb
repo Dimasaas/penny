@@ -1,4 +1,4 @@
-module Tostao
+module Penny
   # Base de todos os erros da biblioteca.
   class Erro < ArgumentError; end
 

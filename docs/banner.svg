@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="Tostão: dinheiro em centavos inteiros, rateio exato e boleto ITF em SVG">
-  <title>Tostão</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="Penny: dinheiro em centavos inteiros, rateio exato e boleto ITF em SVG">
+  <title>Penny</title>
   <defs>
     <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#2a1052"/>
@@ -46,7 +46,7 @@
     <rect x="1206" y="196" width="4" height="64"/>
     <rect x="1214" y="196" width="12" height="64"/>
   </g>
-  <text x="70" y="135" font-size="84" font-weight="700" fill="#ffffff">Tostão<tspan class="cursor" fill="#00E5FF">_</tspan></text>
+  <text x="70" y="135" font-size="84" font-weight="700" fill="#ffffff">Penny<tspan class="cursor" fill="#00E5FF">_</tspan></text>
   <text x="74" y="185" font-size="23" fill="#B388FF">dinheiro em centavos inteiros, rateio exato e boleto ITF em SVG</text>
   <text x="74" y="244" font-size="22" fill="#e8e0ff">rateio(10_000, [1, 1, 1])</text>
   <text x="74" y="276" font-size="22" fill="#00E5FF">=&gt; [3334, 3333, 3333]   soma = 10000</text>

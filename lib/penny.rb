@@ -1,23 +1,23 @@
-require_relative "tostao/versao"
-require_relative "tostao/erros"
-require_relative "tostao/rateio"
-require_relative "tostao/reais"
-require_relative "tostao/modulos"
-require_relative "tostao/boleto"
-require_relative "tostao/itf"
+require_relative "penny/versao"
+require_relative "penny/erros"
+require_relative "penny/rateio"
+require_relative "penny/reais"
+require_relative "penny/modulos"
+require_relative "penny/boleto"
+require_relative "penny/itf"
 
 # Dinheiro em centavos inteiros. Float nunca entra na conta.
-module Tostao
+module Penny
   module_function
 
   # Reparte +total+ (centavos) por pesos, sem perder nem criar centavo.
   #
-  #   Tostao.rateio(10_000, [1, 1, 1]) # => [3334, 3333, 3333]
+  #   Penny.rateio(10_000, [1, 1, 1]) # => [3334, 3333, 3333]
   def rateio(total, pesos) = Rateio.por_pesos(total, pesos)
 
   # Como #rateio, mas os pesos são percentuais e precisam somar 100%.
   #
-  #   Tostao.rateio_percentual(10_000, ["60", "40"]) # => [6000, 4000]
+  #   Penny.rateio_percentual(10_000, ["60", "40"]) # => [6000, 4000]
   def rateio_percentual(total, percentuais) = Rateio.por_percentuais(total, percentuais)
 
   # 12345 -> "R$ 123,45"

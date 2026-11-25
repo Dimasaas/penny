@@ -1,6 +1,6 @@
 require "bigdecimal"
 
-module Tostao
+module Penny
   # Repartição de um total em centavos pelo método dos maiores restos
   # (Hamilton): cada parte recebe o piso da sua cota exata, e os centavos que
   # sobram vão, um a um, para quem teve a maior fração perdida. Empate: quem
